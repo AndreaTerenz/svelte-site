@@ -1,0 +1,6 @@
+@import url(https://fonts.bunny.net/css?family=alef:400,700);
+@import 'tailwindcss';
+
+@theme {
+    --default-font-family: 'Alef', sans-serif;
+}
