@@ -1,6 +1,71 @@
-<script>
+<script lang="ts">
     import "#app.css";
     import favicon from "$lib/assets/favicon.svg";
+    import { P5Canvas, disableFES } from "svelte-p5";
+    import type p5 from 'p5';
+    import { useDarkMode } from "../utils";
+
+    disableFES()
+    let cols = 0.0
+    let rows = 0.0
+    let drawnFirst = false
+    const spacing = 40.0
+    const radius = 9.0
+    const minRadius = 2.0
+    const minRadDistance = 170.0
+    
+    const sketch = (p: p5) => {
+        const getGridSizes = () => {
+            cols = p.ceil(p.width / spacing)
+            rows = p.ceil(p.height / spacing)
+        }
+
+		p.setup = () => {
+            p.createCanvas(p.windowWidth, p.windowHeight)
+            p.noLoop()
+            p.noStroke()
+
+            getGridSizes()
+        }
+
+        p.windowResized = () => {
+            p.resizeCanvas(p.windowWidth, p.windowHeight)
+            getGridSizes()
+
+            p.redraw()
+        }
+
+        p.mouseMoved = () => {
+            drawnFirst = true
+            p.redraw()
+        }
+		
+        p.draw = () => {
+			p.clear()
+            const dark = useDarkMode()
+
+            for (let c = 0; c < cols; c++) {
+                for (let r = 0; r < rows; r++) {
+                    if ((c+r)%2 !== 0) {
+                        continue
+                    }
+
+                    const center = [spacing*c, spacing*r]
+                    let fact = 1.0
+
+                    if (drawnFirst) {
+                        const dist = p.dist(p.mouseX, p.mouseY, center[0], center[1])
+                        fact = p.constrain(dist/minRadDistance, 0.0, 1.0)
+                    }
+
+                    let rad = p.lerp(radius, minRadius, fact)
+
+                    p.fill(dark ? p.color(255, 0.4 * 255) : p.color(0, 0.4 * 255))
+                    p.circle(center[0], center[1], rad);
+                }
+            }
+		}
+	};
 
     let { children } = $props();
 </script>
@@ -9,34 +74,10 @@
     <link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="w-[200%] h-[200%] global-bg absolute z-[-1]"></div>
-<div class="max-w-[750px] h-full flex-1">
+<P5Canvas {sketch} class="absolute z-[-1] top-0 left-0"/>
+<div class="max-w-[750px] h-full flex-1 relative">
     {@render children()}
 </div>
 
 <style>
-    .global-bg {
-        @reference '#app.css';
-
-        --bg-col: transparent;
-        --polka-col: light-dark(var(--color-gray-300), var(--color-gray-600));
-
-        --radius: 3px;
-        --spacing: 60px;
-
-        @apply bg-transparent dark:opacity-50;
-        
-        background-image: radial-gradient(
-                var(--polka-col) var(--radius),
-                transparent var(--radius)
-            ),
-            radial-gradient(
-                var(--polka-col) var(--radius),
-                var(--color-body) var(--radius)
-            );
-        background-size: calc(var(--spacing) * 2) calc(var(--spacing) * 2);
-        background-position:
-            0 0,
-            var(--spacing) var(--spacing);
-    }
 </style>

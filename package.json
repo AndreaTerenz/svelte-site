@@ -25,6 +25,8 @@
 	},
 	"dependencies": {
 		"bootstrap-icons": "^1.13.1",
+		"p5": "^2.2.3",
+		"svelte-p5": "^0.3.0",
 		"svelte-typed-js": "^1.0.3"
 	}
 }
