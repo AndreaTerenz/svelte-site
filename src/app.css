@@ -13,6 +13,7 @@ html {
 
 body {
     @apply flex flex-row justify-center w-screen h-screen;
+    @apply text-black bg-gray-300 dark:text-white dark:bg-gray-900
 }
 
 .row {
