@@ -1,19 +1,21 @@
-@import url(https://fonts.bunny.net/css?family=alef:400,700|martian-mono:400,600);
-@import '~bicons/font/bootstrap-icons.min.css';
+@import url(https://fonts.bunny.net/css?family=martian-mono:400,600|amaranth:400,700|atkinson-hyperlegible:400,700);
 @import 'tailwindcss';
+@import '~bicons/font/bootstrap-icons.min.css';
 
 @theme {
-    --default-font-family: 'Alef', sans-serif;
+    --default-font-family: 'Atkinson Hyperlegible', sans-serif;
     --font-mono: 'Martian Mono', monospace;
+    --color-body: light-dark(var(--color-gray-200), var(--color-gray-900));
 }
 
 html {
     font-size: 20px;
+    color-scheme: light dark;
 }
 
 body {
     @apply flex flex-row justify-center w-screen h-screen;
-    @apply text-black bg-gray-300 dark:text-white dark:bg-gray-900
+    @apply text-black dark:text-white bg-body overflow-hidden;
 }
 
 .row {

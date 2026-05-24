@@ -48,13 +48,18 @@ function calculateAge () {
     <div>
         Aute {calculateAge()} excepteur adipisicing exercitation amet cupidatat ut aute nostrud veniam sunt sit ex occaecat. Consequat exercitation minim esse irure eiusmod adipisicing enim minim ullamco. Enim laboris nulla exercitation nisi laborum nostrud labore non laboris sunt esse. Non pariatur id sunt ad consequat sint nulla nisi officia. Veniam in in quis incididunt anim amet ullamco cupidatat sit laborum id adipisicing nisi. Enim tempor anim sed ullamco aliqua incididunt do irure ex qui ex amet.
     </div>
-    <div class="row gap-[2em] justify-center">
-        {#each contacts as contact}
-            <a class="contact {contact.color}" target="_blank" href={contact.link}>
-                <span class="bi bi-{contact.icon} mr-[0.25em]"></span>
-                {contact.text}
-            </a>
-        {/each}
+    <div class="col gap-[2em]">
+        <p class="w-full text-center text-[2em]">
+            You can find me here:
+        </p>
+        <div class="row gap-[1.5em] justify-center">
+            {#each contacts as contact}
+                <a class="contact {contact.color}" target="_blank" href={contact.link}>
+                    <span class="bi bi-{contact.icon} mr-[0.25em]"></span>
+                    {contact.text}
+                </a>
+            {/each}
+        </div>
     </div>
 </div>
 
