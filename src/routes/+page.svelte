@@ -43,6 +43,15 @@
         return years;
     }
 
+    function share() {
+        const shareData = {
+            url: window.origin,
+        };
+
+        navigator.share(shareData)
+            .catch(console.error)
+    }
+
     const finalTitle = "> Andrea Terenziani";
     const animTitle = "> echo $NAME";
     let title: HTMLParagraphElement;
@@ -88,9 +97,9 @@
         ullamco cupidatat sit laborum id adipisicing nisi. Enim tempor anim sed ullamco
         aliqua incididunt do irure ex qui ex amet.
     </div>
-    <div class="col gap-[2em]">
+    <div class="col gap-[2em] items-center">
         <p class="w-full text-center text-[2em]">You can find me here:</p>
-        <div class="row gap-[1.5em] justify-center">
+        <div class="flex flex-col items-center gap-[1.5em] lg:flex-row lg:items-start lg:justify-center">
             {#each contacts as contact}
                 <a
                     class="contact {contact.color}"
@@ -102,6 +111,10 @@
                 </a>
             {/each}
         </div>
+        <button class="contact bg-[rebeccapurple]" onclick={share}>
+            <i class="bi bi-share-fill mr-[0.25em]"></i>
+            Share this website!
+        </button>
     </div>
 </div>
 
