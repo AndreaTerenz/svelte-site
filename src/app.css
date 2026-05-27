@@ -9,7 +9,7 @@
 }
 
 html {
-    font-size: 20px;
+    @apply text-[18px] lg:text-[20px];
     color-scheme: light dark;
 }
 
