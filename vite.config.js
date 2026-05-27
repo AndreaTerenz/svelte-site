@@ -12,6 +12,7 @@ export default defineConfig({
         alias: {
             '~bicons': path.resolve(__dirname, 'node_modules/bootstrap-icons'),
             '#app.css': path.resolve(__dirname, 'src/app.css'),
+            "@": path.resolve(__dirname, "src"),
         }
     },
 

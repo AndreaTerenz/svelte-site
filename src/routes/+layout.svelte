@@ -1,10 +1,10 @@
 <script lang="ts">
-    import "#app.css";
-    import '../i18n';
+    import "@/app.css";
+    import '@/i18n';
     import favicon from "$lib/assets/favicon.svg";
     import { P5Canvas, disableFES } from "svelte-p5";
     import type p5 from 'p5';
-    import { useDarkMode } from "../utils";
+    import { useDarkMode } from "@/utils";
     import { isLoading } from 'svelte-i18n'
 
     disableFES()

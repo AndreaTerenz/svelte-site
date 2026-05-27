@@ -54,9 +54,11 @@
 
     const finalTitle = "> Andrea Terenziani";
     const animTitle = "> echo $NAME";
+    const typingTime = 150
+    const finalDelay = 300
     let title: HTMLParagraphElement;
     let titleChars: String[] = $state(
-        finalTitle.replaceAll(/(\w|\$)/g, " ").split(""),
+        "> ".padEnd(finalTitle.length, " ").split("")
     );
     let titleIdx = $state(2);
 
@@ -69,15 +71,18 @@
             setTimeout(() => {
                 title.textContent = finalTitle;
                 titleIdx += 1;
-            }, 300);
+            }, finalDelay);
             return;
         }
 
         titleChars[titleIdx] = animTitle[titleIdx];
 
+        if (titleIdx < titleChars.length-1)
+            titleChars[titleIdx+1] = "_";
+
         setTimeout(() => {
             titleIdx += 1;
-        }, 150);
+        }, typingTime);
     });
 </script>
 
@@ -89,13 +94,12 @@
         {titleChars.join("")}
     </p>
     <div>
-        Aute {calculateAge()} excepteur adipisicing exercitation amet cupidatat ut
-        aute nostrud veniam sunt sit ex occaecat. Consequat exercitation minim esse
-        irure eiusmod adipisicing enim minim ullamco. Enim laboris nulla exercitation
-        nisi laborum nostrud labore non laboris sunt esse. Non pariatur id sunt ad
-        consequat sint nulla nisi officia. Veniam in in quis incididunt anim amet
-        ullamco cupidatat sit laborum id adipisicing nisi. Enim tempor anim sed ullamco
-        aliqua incididunt do irure ex qui ex amet.
+        {$_("presentation", {values: {age: calculateAge()}})}
+    </div>
+    <div class="row justify-center gap-[20px]">
+        {#each links as link}
+            <a href={link.route}>{$_(link.i18n_key)}</a>
+        {/each}
     </div>
     <div class="col gap-[2em] items-center">
         <p class="w-full text-center text-[2em]">{$_("contacts_title")}</p>

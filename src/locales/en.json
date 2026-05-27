@@ -1,4 +1,8 @@
 {
-  "share": "Share this website!",
-  "contacts_title": "You can find me here:"
+    "share": "Share this website!",
+    "contacts_title": "You can find me here:",
+    "presentation": "Aute {age}AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "links": {
+        "guestbook": "Guestbook"
+    }
 }
