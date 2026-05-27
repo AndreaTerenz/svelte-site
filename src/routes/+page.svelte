@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { _ } from "svelte-i18n";
     const contacts = [
         {
             icon: "envelope",
@@ -48,8 +49,7 @@
             url: window.origin,
         };
 
-        navigator.share(shareData)
-            .catch(console.error)
+        navigator.share(shareData).catch(console.error);
     }
 
     const finalTitle = "> Andrea Terenziani";
@@ -98,8 +98,10 @@
         aliqua incididunt do irure ex qui ex amet.
     </div>
     <div class="col gap-[2em] items-center">
-        <p class="w-full text-center text-[2em]">You can find me here:</p>
-        <div class="flex flex-col items-center gap-[1.5em] lg:flex-row lg:items-start lg:justify-center">
+        <p class="w-full text-center text-[2em]">{$_("contacts_title")}</p>
+        <div
+            class="flex flex-col items-center gap-[1.5em] lg:flex-row lg:items-start lg:justify-center"
+        >
             {#each contacts as contact}
                 <a
                     class="contact {contact.color}"
@@ -113,7 +115,7 @@
         </div>
         <button class="contact bg-[rebeccapurple]" onclick={share}>
             <i class="bi bi-share-fill mr-[0.25em]"></i>
-            Share this website!
+            {$_('share')}
         </button>
     </div>
 </div>

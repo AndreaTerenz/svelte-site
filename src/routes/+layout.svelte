@@ -1,9 +1,11 @@
 <script lang="ts">
     import "#app.css";
+    import '../i18n';
     import favicon from "$lib/assets/favicon.svg";
     import { P5Canvas, disableFES } from "svelte-p5";
     import type p5 from 'p5';
     import { useDarkMode } from "../utils";
+    import { isLoading } from 'svelte-i18n'
 
     disableFES()
     let cols = 0.0
@@ -75,10 +77,12 @@
     <title>AndreaTerenz</title>
 </svelte:head>
 
+{#if !$isLoading}
 <P5Canvas {sketch} class="absolute z-[-1] top-0 left-0"/>
 <div class="max-w-[950px] p-[10px] md:px-0  h-full flex-1 relative">
     {@render children()}
 </div>
+{/if}
 
 <style>
 </style>
