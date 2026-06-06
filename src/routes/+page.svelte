@@ -27,6 +27,26 @@
         },
     ];
 
+    // Pinned repos
+    // Cool websites list
+    // Digital garden thing
+    // ATProto guestbook
+    // Leaflet blog (not sure how embeddable it is)
+    const links = [
+        {
+            route: "/guestbook",
+            i18n_key: "links.guestbook"
+        },
+        {
+            route: "/guestbook",
+            i18n_key: "links.guestbook"
+        },
+        {
+            route: "/guestbook",
+            i18n_key: "links.guestbook"
+        }
+    ]
+
     function calculateAge() {
         const birthDate = new Date(1999, 10, 30);
         const today = new Date();
