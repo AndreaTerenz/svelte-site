@@ -3,7 +3,7 @@
     "tasks": [
         {
             "label": "Run dev",
-            "command": "bun run dev",
+            "command": "bun run vite dev",
             "type": "shell",
             "args": [],
             "problemMatcher": [
