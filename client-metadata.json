@@ -1,0 +1,12 @@
+{
+  "client_id": "https://svelte-site-gilt.vercel.app/client-metadata.json",
+  "client_name": "Your Guestbook",
+  "client_uri": "https://svelte-site-gilt.vercel.app/",
+  "redirect_uris": ["https://svelte-site-gilt.vercel.app/"],
+  "scope": "atproto transition:generic",
+  "grant_types": ["authorization_code", "refresh_token"],
+  "response_types": ["code"],
+  "token_endpoint_auth_method": "none",
+  "application_type": "web",
+  "dpop_bound_access_tokens": true
+}

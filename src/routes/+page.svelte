@@ -8,9 +8,9 @@
             color: "bg-gmail",
         },
         {
-            icon: "github",
-            text: "Github",
-            link: "https://github.com/AndreaTerenz",
+            icon: "git",
+            text: "Codeberg",
+            link: "https://codeberg.org/AndreaTerenz",
             color: "bg-github",
         },
         {
@@ -34,16 +34,8 @@
     // Leaflet blog (not sure how embeddable it is)
     const links = [
         {
-            route: "/guestbook",
-            i18n_key: "links.guestbook"
-        },
-        {
-            route: "/guestbook",
-            i18n_key: "links.guestbook"
-        },
-        {
-            route: "/guestbook",
-            i18n_key: "links.guestbook"
+            route: "/projects",
+            i18n_key: "links.projects"
         }
     ]
 
@@ -82,6 +74,8 @@
     );
     let titleIdx = $state(2);
 
+    const introTxt = $_("presentation", { values: { age: calculateAge() } })
+
     $effect(() => {
         if (titleIdx > animTitle.length) {
             return;
@@ -113,8 +107,12 @@
     >
         {titleChars.join("")}
     </p>
-    <div>
-        {$_("presentation", {values: {age: calculateAge()}})}
+    <div class="flex flex-col gap-[10px]">
+        {#each introTxt.split("<br/>") as introP, idx}
+            <p class="{idx%2 !== 0 ? 'text-right' : 'text-left' }">
+                {@html introP}
+            </p>
+        {/each}
     </div>
     <div class="row justify-center gap-[20px]">
         {#each links as link}

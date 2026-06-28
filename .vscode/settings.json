@@ -1,9 +1,9 @@
 {
     "editor.tabSize": 4,
     "editor.indentSize": "tabSize",
-	"files.associations": {
-		"*.css": "tailwindcss"
-    },
+    "css.customData": [
+        ".vscode/tailwind.json"
+    ],
     "i18n-ally.localesPaths": [
         "src/locales"
     ],
