@@ -3,7 +3,6 @@
     "share": "Condividi questo sito!",
     "presentation": "Ciao! Sono un software developer e tinkerer di {age, number} anni. Qui puoi trovare un portfolio di progetti interessanti a cui ho lavorato negli anni, sia per lavoro che per divertimento personale. Programmo da quando ho 14 anni, cominciando con C ai tempi del Liceo.<br/>Ho poi cominciato a curiosare oltre iniziando vari piccoli progetti, smanettando con un po' di tutto da <b>Pascal</b> a <b>Go</b>, da <b>Python</b> a <b>Javascript</b> (usando p5.js), da <b>C#</b> a <b>Nim</b>, passando anche per <b>Unity</b> e <b>Godot</b> (a causa dei quali ho anche fatto un po' di esperienza con <b>Blender</b>). Nel mentre, ho svolto prima la Triennale in Informatica e poi la Magistrale in Artificial Intelligence.<br/>Ora, quando non sto lavorando con Vue o Laravel, sto o combinando qualcosa in Godot, un fantastico game engine open source che ho usato abbondantemente, o gestendo i vari servizi che vivono sul mio piccolo home server.",
     "links": {
-        "guestbook": "Aooooo",
         "projects": "Progetti"
     }
 }

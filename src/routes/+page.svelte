@@ -1,5 +1,17 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
+    import { isLoading } from 'svelte-i18n'
+    import { sineOut } from 'svelte/easing';
+    
+	function fadeIn(node: HTMLElement, params: { delay?: number, duration?: number, easing?: (t: number) => number }) {
+		return {
+			delay: params.delay || 0,
+			duration: params.duration || 400,
+			easing: params.easing || sineOut,
+			css: (t: number, u: number) => `opacity: ${t*100}%; transform: translate(0, ${u*20}px)`
+		};
+    }
+
     const contacts = [
         {
             icon: "envelope",
@@ -68,7 +80,7 @@
     const animTitle = "> echo $NAME";
     const typingTime = 150
     const finalDelay = 300
-    let title: HTMLParagraphElement;
+    let title = $state<HTMLParagraphElement>();
     let titleChars: String[] = $state(
         "> ".padEnd(finalTitle.length, " ").split("")
     );
@@ -83,7 +95,7 @@
 
         if (titleIdx === animTitle.length) {
             setTimeout(() => {
-                title.textContent = finalTitle;
+                title!.textContent = finalTitle;
                 titleIdx += 1;
             }, finalDelay);
             return;
@@ -100,16 +112,24 @@
     });
 </script>
 
-<div class="w-full col gap-[3em] pt-[2em] z-10">
+{#if !$isLoading}
+<!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
+    <i class="bi bi-share-fill mr-[0.25em]"></i>
+</button> -->
+<div class="w-full col gap-12 pt-8 z-10">
     <p
-        class="whitespace-pre font-mono font-bold self-center text-[1.5rem]"
+        class="whitespace-pre font-mono font-bold self-center text-md"
         bind:this={title}
     >
         {titleChars.join("")}
     </p>
-    <div class="flex flex-col gap-[10px]">
-        {#each introTxt.split("<br/>") as introP, idx}
-            <p class="{idx%2 !== 0 ? 'text-right' : 'text-left' }">
+    <div class="flex flex-col gap-12 text-sm">
+        {#each introTxt.split("<br/>") as introP, idx (idx)}
+            <p transition:fadeIn|global={{
+                duration: 500, 
+                delay: 60*(idx*2)
+            }} 
+            class="max-w-[80%] {idx%2 !== 0 ? 'intro-p-right' : 'intro-p-left' }">
                 {@html introP}
             </p>
         {/each}
@@ -119,8 +139,8 @@
             <a href={link.route}>{$_(link.i18n_key)}</a>
         {/each}
     </div>
-    <div class="col gap-[2em] items-center">
-        <p class="w-full text-center text-[2em]">{$_("contacts_title")}</p>
+    <div class="col gap-8 items-center">
+        <p class="w-full text-center text-md">{$_("contacts_title")}</p>
         <div
             class="flex flex-col items-center gap-[1.5em] lg:flex-row lg:items-start lg:justify-center"
         >
@@ -141,6 +161,7 @@
         </button>
     </div>
 </div>
+{/if}
 
 <style>
     @reference 'tailwindcss';
@@ -167,5 +188,13 @@
 
     .bg-linkedin {
         @apply bg-[#006292];
+    }
+
+    .intro-p-left {
+        @apply text-left;
+    }
+
+    .intro-p-right {
+        @apply text-right self-end;
     }
 </style>

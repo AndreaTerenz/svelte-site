@@ -6,14 +6,21 @@
     --default-font-family: 'Atkinson Hyperlegible', sans-serif;
     --font-mono: 'Martian Mono', monospace;
     --color-body: light-dark(var(--color-gray-200), var(--color-gray-900));
+
+    --text-xs: 1rem;
+    --text-sm: 2rem;
+    --text-md: 3rem;
+    --text-lg: 4rem;
+    --text-xl: 5rem;
 }
 
 html {
-    @apply text-[18px] lg:text-[20px];
+    @apply text-[9px] lg:text-[12px];
     color-scheme: light dark;
 }
 
 body {
+    @apply text-sm;
     @apply flex flex-row justify-center w-screen h-screen;
     @apply text-black dark:text-white bg-body overflow-hidden;
 }
