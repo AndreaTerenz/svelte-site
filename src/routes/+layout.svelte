@@ -1,12 +1,12 @@
 <script lang="ts">
     import "@/app.css";
     import '@/i18n';
-    import favicon from "$lib/assets/favicon.svg";
     import { P5Canvas, disableFES } from "svelte-p5";
     import type p5 from 'p5';
     import { useDarkMode } from "@/utils";
     import { isLoading } from 'svelte-i18n'
     import { dev } from "$app/environment";
+    import { asset } from "$app/paths";
 
     disableFES()
     let cols = 0.0
@@ -76,7 +76,7 @@
 </script>
 
 <svelte:head>
-    <link rel="icon" href={favicon} />
+    <link rel="icon" href={asset('/favicon.svg')} />
     <title>AndreaTerenz</title>
 </svelte:head>
 

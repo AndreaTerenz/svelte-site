@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { beforeNavigate } from "$app/navigation";
+    import { onDestroy } from "svelte";
     import { _ } from "svelte-i18n";
     import { isLoading } from 'svelte-i18n'
     import { sineOut } from 'svelte/easing';
@@ -85,16 +87,18 @@
         "> ".padEnd(finalTitle.length, " ").split("")
     );
     let titleIdx = $state(2);
+    let forceStopped = $state(false)
+    let currentTimeout = $state(-1)
 
     const introTxt = $_("presentation", { values: { age: calculateAge() } })
 
     $effect(() => {
-        if (titleIdx > animTitle.length) {
+        if (forceStopped || titleIdx > animTitle.length) {
             return;
         }
 
         if (titleIdx === animTitle.length) {
-            setTimeout(() => {
+            currentTimeout = setTimeout(() => {
                 title!.textContent = finalTitle;
                 titleIdx += 1;
             }, finalDelay);
@@ -106,17 +110,24 @@
         if (titleIdx < titleChars.length-1)
             titleChars[titleIdx+1] = "_";
 
-        setTimeout(() => {
+        currentTimeout = setTimeout(() => {
             titleIdx += 1;
         }, typingTime);
     });
+
+    beforeNavigate(() => {
+        forceStopped = true
+
+        if (currentTimeout >= 0)
+            clearTimeout(currentTimeout)
+    })
 </script>
 
 {#if !$isLoading}
 <!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
     <i class="bi bi-share-fill mr-[0.25em]"></i>
 </button> -->
-<div class="w-full col gap-12 pt-8 z-10">
+<div out:fadeIn|global={{ duration: 500 }} class="w-full col gap-12 pt-8 z-10">
     <p
         class="whitespace-pre font-mono font-bold self-center text-md"
         bind:this={title}
@@ -125,7 +136,7 @@
     </p>
     <div class="flex flex-col gap-12 text-sm">
         {#each introTxt.split("<br/>") as introP, idx (idx)}
-            <p transition:fadeIn|global={{
+            <p in:fadeIn|global={{
                 duration: 500, 
                 delay: 60*(idx*2)
             }} 
@@ -136,7 +147,9 @@
     </div>
     <div class="row justify-center gap-[20px]">
         {#each links as link}
-            <a href={link.route}>{$_(link.i18n_key)}</a>
+            <a class="text-md" href={link.route}>
+                {$_(link.i18n_key)}
+            </a>
         {/each}
     </div>
     <div class="col gap-8 items-center">
@@ -160,6 +173,9 @@
             {$_('share')}
         </button>
     </div>
+    <a class="w-full text-center text-xs italic opacity-30" href="https://www.youtube.com/watch?v=ZZumZYg3ad8">
+        Golden Rule of the Wasteland
+    </a>
 </div>
 {/if}
 
