@@ -3,16 +3,7 @@
     import { onDestroy } from "svelte";
     import { _ } from "svelte-i18n";
     import { isLoading } from 'svelte-i18n'
-    import { sineOut } from 'svelte/easing';
-    
-	function fadeIn(node: HTMLElement, params: { delay?: number, duration?: number, easing?: (t: number) => number }) {
-		return {
-			delay: params.delay || 0,
-			duration: params.duration || 400,
-			easing: params.easing || sineOut,
-			css: (t: number, u: number) => `opacity: ${t*100}%; transform: translate(0, ${u*20}px)`
-		};
-    }
+    import { fadeIn } from "@/utils";
 
     const contacts = [
         {
@@ -127,7 +118,7 @@
 <!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
     <i class="bi bi-share-fill mr-[0.25em]"></i>
 </button> -->
-<div out:fadeIn|global={{ duration: 500 }} class="w-full col gap-12 pt-8 z-10">
+<div out:fadeIn|global={{ duration: 500 }} class="w-full col gap-12 pt-8 z-10 items-center">
     <p
         class="whitespace-pre font-mono font-bold self-center text-md"
         bind:this={title}
@@ -147,7 +138,7 @@
     </div>
     <div class="row justify-center gap-[20px]">
         {#each links as link}
-            <a class="text-md" href={link.route}>
+            <a class="text-md underline-link" href={link.route}>
                 {$_(link.i18n_key)}
             </a>
         {/each}
@@ -173,7 +164,7 @@
             {$_('share')}
         </button>
     </div>
-    <a class="w-full text-center text-xs italic opacity-30" href="https://www.youtube.com/watch?v=ZZumZYg3ad8">
+    <a class="underline-link text-center text-xs italic opacity-30" href="https://www.youtube.com/watch?v=ZZumZYg3ad8">
         Golden Rule of the Wasteland
     </a>
 </div>

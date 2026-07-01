@@ -33,13 +33,14 @@ body {
 }
 
 /* Fade in */
-a {
+.underline-link {
     @apply relative;
 }
 
-a::after {
-    @apply bottom-0 left-0 absolute w-full bg-white h-[0.1em] content-[''];
+.underline-link::after {
+    @apply bottom-0 left-0 absolute w-full h-[0.1em] content-[''];
     
+    background: currentColor;
     transition: transform 300ms, opacity 100ms;
     
     transform: scaleX(0);
@@ -47,8 +48,8 @@ a::after {
     transform-origin: center;
 }
 
-a:hover::after,
-a:focus::after{
+.underline-link:hover::after,
+.underline-link:focus::after{
     transform: scaleX(1);
     opacity: 1;
 }

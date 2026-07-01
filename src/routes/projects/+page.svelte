@@ -2,7 +2,7 @@
     import { _ } from "svelte-i18n";
     import data from "$lib/data.json"
     import { asset } from "$app/paths";
-    import { cssHexWithAlpha } from "@/utils";
+    import { cssHexWithAlpha, fadeIn } from "@/utils";
 
     let currentCat = $state(0)
     let currentCont = $state(-1)
@@ -29,14 +29,21 @@
     }
 </script>
 
-<div class="col h-full items-center gap-[60px]">
-    <div class="row justify-evenly w-full gap-[16px]">
-        {#each data as category, idx (idx)}
-            <button class="flex-1 rounded-[10px] transition-all {currentCat === idx ? 'bg-white text-black' : ''}" 
-            onclick={() => onTabSelected(idx)}>
-                {$_(`projects.${category.id}.name`)}
-            </button>
-        {/each}
+<div out:fadeIn|global={{ duration: 500 }} class="col h-full items-center gap-[60px]">
+    <div class="row w-full gap-[30px]">
+        <a href="/" class="bi bi-house-door-fill hover:scale-[1.4] transition-transform" aria-label="to-home"></a>
+        <div class="row justify-evenly flex-1 gap-[12px] relative">
+            <span 
+                class="absolute top-0 bg-white rounded-[10px] h-full z-[-1] transition-all" 
+                style="width: {100/data.length}%; left: {currentCat*(100/data.length)}%;"
+            ></span>
+            {#each data as category, idx (idx)}
+                <button class="flex-1 transition-all {currentCat === idx ? 'text-black' : 'text-white'}" 
+                onclick={() => onTabSelected(idx)}>
+                    {$_(`projects.${category.id}.name`)}
+                </button>
+            {/each}
+        </div>
     </div>
     <div class="overflow-hidden w-[80%]">
         <div class="overflow-y-auto size-full col gap-[20px] items-stretch">
@@ -58,7 +65,7 @@
                             {getContentProp("descr")}
                         </div>
                         <div class="col-span-full text-center row justify-center">
-                            <a href="{data[currentCat].content[idx].link}">
+                            <a class="underline-link" href="{data[currentCat].content[idx].link}">
                                 {$_("projects.view_link")}
                             </a>
                         </div>
