@@ -4,5 +4,27 @@
     "presentation": "Hi! I'm a {age, number} software developer and tinkerer from Italy. Here you can find a portfolio of cool projects I've worked on over the years, both for work and for my own fun. I have been coding since I was 14, starting with C in high school.<br/>I then started to look around beyond that and begun many small personal projects, messing with everything from <b>Pascal</b> to <b>Go</b>, from <b>Python</b> to <b>Javascript</b>, from <b>C#</b> to <b>Nim</b>, from <b>Unity</b> to <b>Godot</b>, an amazing open source game engine - and doing game dev got me some experience with <b>Blender</b> as well.<br/>Now, when I'm not doing work with Vue and Laravel, I'm either messing around with either Godot or managing the several services I'm self hosting on my own home server.",
     "links": {
         "projects": "Projects"
+    },
+    "projects": {
+        "view_link": "See more here",
+        "work": {
+            "name": "Work",
+            "content": [{
+                "title": "Work 1",
+                "descr": "HELOOOOOOO"
+            },{
+                "title": "Work 2",
+                "descr": "HELOOOOOOO 2"
+            }]
+        },
+        "godot": {
+            "name": "Godot"
+        },
+        "blender": {
+            "name": "Blender"
+        },
+        "others": {
+            "name": "Others"
+        }
     }
 }
