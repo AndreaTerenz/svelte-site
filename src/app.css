@@ -15,7 +15,7 @@
 }
 
 html {
-    @apply text-[9px] lg:text-[12px];
+    @apply text-[10px] lg:text-[12px];
     color-scheme: light dark;
 }
 

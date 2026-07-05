@@ -143,10 +143,10 @@
             </a>
         {/each}
     </div>
-    <div class="col gap-8 items-center">
+    <div class="col gap-8 w-[80%] md:w-full max-w-[800px] items-center">
         <p class="w-full text-center text-md">{$_("contacts_title")}</p>
         <div
-            class="flex flex-col items-center gap-[1.5em] lg:flex-row lg:items-start lg:justify-center"
+            class="grid grid-cols-4 w-full gap-[1.5em] items-start justify-around"
         >
             {#each contacts as contact}
                 <a
@@ -175,9 +175,10 @@
 
     .contact {
         @apply p-[8px] rounded-[8px] text-white transition-all duration-200 ease-out;
+        @apply col-span-4 min-[35rem]:col-span-2 md:col-span-1;
 
         @variant hover {
-            @apply scale-110 outline-6 outline-gray-300;
+            @apply md:scale-110 outline-6 outline-gray-300;
         }
     }
 
