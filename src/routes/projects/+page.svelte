@@ -29,10 +29,14 @@
     }
 </script>
 
+<svelte:head>
+	<title>Projects</title>
+</svelte:head>
+
 <div class="col w-full! items-center gap-12">
     <div class="row w-full gap-[30px]">
         <a href="/" class="bi bi-house-door-fill hover:scale-[1.4] transition-transform" aria-label="to-home"></a>
-        <div class="row justify-evenly flex-1 gap-[12px] relative">
+        <div class="row justify-evenly flex-1 relative">
             <span 
                 class="absolute top-0 bg-white rounded-[10px] h-full z-[-1] transition-all" 
                 style="width: {100/data.length}%; left: {currentCat*(100/data.length)}%;"

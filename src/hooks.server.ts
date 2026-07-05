@@ -1,5 +1,6 @@
 import { env } from '$env/dynamic/private';
 import type { Handle } from '@sveltejs/kit';
+import { getLocaleFromNavigator } from "svelte-i18n";
 
 export const handle: Handle = async ({ event, resolve }) => {
     const maintPage = '/maintenance'
@@ -16,5 +17,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     // <other logic>
     
     // Default response
-    return await resolve(event);
+    return await resolve(event, {
+		transformPageChunk: ({ html }) => html.replace('%lang%', getLocaleFromNavigator() ?? "en-US")
+	});
 }

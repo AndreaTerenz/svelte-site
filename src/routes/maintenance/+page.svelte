@@ -12,6 +12,10 @@
     });
 </script>
 
+<svelte:head>
+	<title>Maintenance</title>
+</svelte:head>
+
 <figure class="relative size-full col justify-center items-center text-center">
     <p class="absolute text-md top-20  w-full">
         {@html $_('maintenance.title')}

@@ -114,6 +114,10 @@
     })
 </script>
 
+<svelte:head>
+	<title>Home Page</title>
+</svelte:head>
+
 {#if !$isLoading}
 <!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
     <i class="bi bi-share-fill mr-[0.25em]"></i>
