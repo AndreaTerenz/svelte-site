@@ -118,14 +118,14 @@
 <!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
     <i class="bi bi-share-fill mr-[0.25em]"></i>
 </button> -->
-<div out:fadeIn|global={{ duration: 500 }} class="w-full col gap-12 pt-8 z-10 items-center">
+<div out:fadeIn|global={{ duration: 500 }} class="w-full col gap-12 pt-8 items-center">
     <p
         class="whitespace-pre font-mono font-bold self-center text-md"
         bind:this={title}
     >
         {titleChars.join("")}
     </p>
-    <div class="flex flex-col gap-12 text-sm">
+    <div class="col gap-12 text-sm">
         {#each introTxt.split("<br/>") as introP, idx (idx)}
             <p in:fadeIn|global={{
                 duration: 500, 

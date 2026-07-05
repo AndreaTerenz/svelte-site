@@ -21,14 +21,14 @@ html {
 
 body {
     @apply text-sm;
-    @apply flex flex-row justify-center w-screen h-screen;
+    @apply row justify-center w-screen h-screen;
     @apply text-black dark:text-white bg-body overflow-hidden;
 }
 
-.row {
+@utility row {
     @apply flex flex-row;
 }
-.col {
+@utility col {
     @apply flex flex-col;
 }
 
