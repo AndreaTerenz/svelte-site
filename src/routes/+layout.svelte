@@ -6,6 +6,9 @@
     import { useDarkMode } from "@/utils";
     import { isLoading } from 'svelte-i18n'
     import { asset } from "$app/paths";
+    import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+
+    injectSpeedInsights();
 
     disableFES()
     let cols = 0.0
