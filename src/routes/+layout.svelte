@@ -82,8 +82,8 @@
 
 {#if !$isLoading}
 <P5Canvas {sketch} class="absolute z-[-1] top-0 left-0"/>
-<div class="absolute max-w-[950px] h-full overflow-y-hidden">
-    <div class="w-full p-[20px] relative overflow-y-auto lg:overflow-y-hidden h-full">
+<div class="absolute max-w-[950px] size-full overflow-y-hidden">
+    <div class="size-full p-[20px] relative overflow-y-auto lg:overflow-y-hidden">
         {@render children()}
     </div>
 </div>

@@ -29,7 +29,7 @@
     }
 </script>
 
-<div out:fadeIn|global={{ duration: 500 }} class="col h-full items-center gap-[60px]">
+<div class="col w-full! items-center gap-12">
     <div class="row w-full gap-[30px]">
         <a href="/" class="bi bi-house-door-fill hover:scale-[1.4] transition-transform" aria-label="to-home"></a>
         <div class="row justify-evenly flex-1 gap-[12px] relative">
