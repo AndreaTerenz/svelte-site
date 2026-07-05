@@ -5,6 +5,10 @@
     "links": {
         "projects": "Projects"
     },
+    "maintenance": {
+        "title": "Website currently under maintenance<br>Please, try again later!",
+        "caption": "Egads! You caught the monkeys hard at work!"
+    },
     "projects": {
         "view_link": "See more here",
         "work": {

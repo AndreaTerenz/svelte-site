@@ -5,6 +5,10 @@
     "links": {
         "projects": "Progetti"
     },
+    "maintenance": {
+        "title": "Sito al momento in manutenzione<br>Riprova più tardi!",
+        "caption": "Corbezzoli! Hai scoperto le scimmie martellanti!"
+    },
     "projects": {
         "view_link": "Trovi di più qui",
         "work": {

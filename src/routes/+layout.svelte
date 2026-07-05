@@ -5,7 +5,6 @@
     import type p5 from 'p5';
     import { useDarkMode } from "@/utils";
     import { isLoading } from 'svelte-i18n'
-    import { dev } from "$app/environment";
     import { asset } from "$app/paths";
 
     disableFES()
@@ -16,8 +15,6 @@
     const radius = 9.0
     const minRadius = 2.0
     const minRadDistance = 170.0
-    
-    console.log(`Dev? ${dev}`)
 
     const sketch = (p: p5) => {
         const getGridSizes = () => {
