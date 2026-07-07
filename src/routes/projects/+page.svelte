@@ -7,20 +7,12 @@
     let currentCat = $state(0)
     let currentCont = $state(-1)
 
-    function getContentRoot(idx: number = -1) {
-        if (idx < 0) {
-            idx = currentCont
-        }
-        
-        return `projects.${data[currentCat].id}.content.${idx}`
-    }
-
-    function getContentProp(key: string, idx: number = -1) {
+    function getTranslatedProp(key: string, idx: number = -1) {
         if (idx < 0) {
             idx = currentCont
         }
 
-        return $_(`${getContentRoot(idx)}.${key}`)
+        return $_(`projects.${data[currentCat].id}.content.${idx}.${key}`)
     }
 
     function onTabSelected(idx: number) {
@@ -57,7 +49,7 @@
                         class="w-full p-[8px]" style="background-color: {data[currentCat].theme};"
                         onclick={() => currentCont = (currentCont === idx) ? -1 : idx}
                     >
-                        {getContentProp("title", idx)}
+                        {getTranslatedProp("title", idx)}
                     </button>
                     <div 
                         class="origin-top overflow-hidden transition-[padding] ease-out gap-[12px] grid grid-cols-6
@@ -66,13 +58,15 @@
                     >
                         <img src="{asset("/" + content.image)}" alt="{`Image for content #${idx}`}" class="col-span-2">
                         <div class="col-span-4">
-                            {getContentProp("descr")}
+                            {getTranslatedProp("descr")}
                         </div>
-                        <div class="col-span-full text-center row justify-center">
-                            <a class="underline-link" href="{data[currentCat].content[idx].link}">
-                                {$_("projects.view_link")}
-                            </a>
-                        </div>
+                        {#if content.link}
+                            <div class="col-span-full text-center row justify-center">
+                                <a class="underline-link" href="{content.link}">
+                                    {$_("projects.view_link")}
+                                </a>
+                            </div>
+                        {/if}
                     </div>
                 </div>
             {/each}

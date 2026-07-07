@@ -16,7 +16,7 @@
             icon: "git",
             text: "Codeberg",
             link: "https://codeberg.org/AndreaTerenz",
-            color: "bg-github",
+            color: "bg-codeberg",
         },
         {
             icon: "bluesky",
@@ -135,7 +135,7 @@
                 duration: 500, 
                 delay: 60*(idx*2)
             }} 
-            class="max-w-[80%] {idx%2 !== 0 ? 'intro-p-right' : 'intro-p-left' }">
+            class="md:max-w-[80%] {idx%2 !== 0 ? 'intro-p-right' : 'intro-p-left' }">
                 {@html introP}
             </p>
         {/each}
@@ -190,8 +190,8 @@
         @apply bg-[#a22b1c];
     }
 
-    .bg-github {
-        @apply bg-[#33373a];
+    .bg-codeberg {
+        @apply bg-[#12403E];
     }
 
     .bg-bluesky {
