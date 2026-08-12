@@ -134,10 +134,10 @@
                         style="background-color: {cssHexWithAlpha(data[currentCat].theme, 0.65)}"
                     >
                         {#if content.image}
-                            <div class="col-span-full lg:col-span-3 order-2 lg:order-1 relative row max-h-220 sm:max-h-140">
+                            <div class="col-span-full lg:col-span-3 order-2 lg:order-1 relative h-220 sm:h-130">
                                 {#each [0,1] as i}
                                     {#if contentImgIdx % 2 == i}
-                                        <img class="absolute left-[50%] translate-x-[-50%] max-h-full object-contain" 
+                                        <img class="abs-center-x project-img" 
                                             transition:fade={{duration: 500}}
                                             src="{i == 0 ? evenImg : oddImg}" alt="{`Image for content #${idx}`}"
                                             onerror={(img) => (img.target as HTMLImageElement).src = asset('missing-img.png')  }
@@ -146,7 +146,7 @@
                                 {/each}
                                 <!-- Comical trick to make the div take the height of the current image -->
                                 <!-- while allowing the actual images to be "absolute" and placed on top of each other -->
-                                <img class="opacity-0 max-h-full object-contain" 
+                                <img class="opacity-0 project-img" 
                                     src="{contentImg}" alt="{`Image for content #${idx}`}"
                                 >
                             </div>
@@ -171,4 +171,8 @@
 <style>
 @reference 'tailwindcss';
 @reference '#app.css';
+
+.project-img {
+    @apply h-full object-contain object-center;
+}
 </style>
