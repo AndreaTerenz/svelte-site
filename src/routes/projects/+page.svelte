@@ -1,16 +1,19 @@
 <script lang="ts">
     import { _ } from "svelte-i18n";
     import data from "$lib/data.json"
+    import { fade } from "svelte/transition";
     import { asset } from "$app/paths";
-    import { cssHexWithAlpha, fadeIn } from "@/utils";
+    import { cssHexWithAlpha } from "@/utils";
     import SvelteMarkdown from "svelte-markdown";
 
     let currentCat = $state(0)
     let currentCont = $state(-1)
-    let currentImg = $state(0)
+    let contentImgIdx = $state(0)
     let imgInterval = $state(0)
     let contentData = $derived(currentCont >= 0 ? data[currentCat].content[currentCont] : null)
     let hasMultipleImgs = $derived(contentData?.image && Array.isArray(contentData?.image))
+    let evenImg = $state("")
+    let oddImg = $state("")
     let contentImg = $derived.by(() => {
         if (currentCont < 0) {
             return ""
@@ -23,7 +26,7 @@
         }
         else {
             const maxIdx = contentData!.image.length
-            url = `/projects/${contentData!.image[currentImg % maxIdx]}`
+            url = `/projects/${contentData!.image[contentImgIdx % maxIdx]}`
         }
 
         return asset(url)
@@ -60,7 +63,8 @@
     }
 
     function resetContentImg() {
-        currentImg = 0
+        contentImgIdx = 0
+        evenImg = contentImg
         clearInterval(imgInterval)
         imgInterval = 0
     }
@@ -82,8 +86,15 @@
         }
 
         imgInterval = setInterval(() => {
-            currentImg += 1
-        }, 2_000)
+            contentImgIdx += 1
+
+            if (contentImgIdx % 2 == 0) {
+                evenImg = contentImg
+            }
+            else {
+                oddImg = contentImg
+            }
+        }, 4_000)
     })
 </script>
 
@@ -123,8 +134,21 @@
                         style="background-color: {cssHexWithAlpha(data[currentCat].theme, 0.65)}"
                     >
                         {#if content.image}
-                            <div class="col-span-full lg:col-span-3 order-2 lg:order-1 row justify-center max-h-220 sm:max-h-140">
-                                <img class="max-h-full object-contain transition-all" src="{contentImg}" alt="{`Image for content #${idx}`}">
+                            <div class="col-span-full lg:col-span-3 order-2 lg:order-1 relative row max-h-220 sm:max-h-140">
+                                {#each [0,1] as i}
+                                    {#if contentImgIdx % 2 == i}
+                                        <img class="absolute left-[50%] translate-x-[-50%] max-h-full object-contain" 
+                                            transition:fade={{duration: 500}}
+                                            src="{i == 0 ? evenImg : oddImg}" alt="{`Image for content #${idx}`}"
+                                            onerror={(img) => (img.target as HTMLImageElement).src = asset('missing-img.png')  }
+                                        >
+                                    {/if}
+                                {/each}
+                                <!-- Comical trick to make the div take the height of the current image -->
+                                <!-- while allowing the actual images to be "absolute" and placed on top of each other -->
+                                <img class="opacity-0 max-h-full object-contain" 
+                                    src="{contentImg}" alt="{`Image for content #${idx}`}"
+                                >
                             </div>
                         {/if}
                         <div class="leading-tight col-span-full order-1 lg:order-2 lg:col-span-3">
@@ -145,9 +169,6 @@
 </div>
 
 <style>
-@reference 'tailwindcss'
-
-.project-img {
-    @apply max-h-full object-contain;
-}
+@reference 'tailwindcss';
+@reference '#app.css';
 </style>
