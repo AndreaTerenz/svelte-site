@@ -12,6 +12,8 @@
     --text-md: 3rem;
     --text-lg: 4rem;
     --text-xl: 5rem;
+
+    --spacing: 4px;
 }
 
 html {
