@@ -1,24 +1,34 @@
 [{
     "id": "work",
+    "name": "Work",
     "theme": "#FFFF8D",
     "content": [{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "gametour",
+        "link": "https://gametour.it",
+        "title": "EmilBanca Gametour",
+        "descr": "An interactive quiz experience, centered around exploring places of interest throught the Emilia region. Visit towns and natural landmarks, and answer questions about them to get rewards.",
+        "image": ["gametour-0.png", "gametour-1.png"]
     },{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "backstage",
+        "title": "Backstage - Tutti in Scena",
+        "descr": "a",
+        "image": ["start.png", "game.png", "win.png", "game-mobile.png"]
     },{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "fragore",
+        "link": "https://fragore.comune.lugo.ra.it/",
+        "title": "FRAGORE",
+        "descr": "a",
+        "image": ["start.png", "map.png", "qr.png", "game.png", "archive.png"]
     },{
-        "link": "https://example.org",
-        "image": "favicon.svg"
-    },{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "judikes",
+        "link": "https://www.fondazioneromanicosardegna.it/judikes/",
+        "title": "Judikes",
+        "descr": "a",
+        "image": ["start.png", "question.png"]
     }]
 },{
     "id": "godot",
+    "name": "Godot",
     "theme": "#00FF00",
     "content": [{
         "link": "https://example.org",
@@ -35,6 +45,7 @@
     }]
 },{
     "id": "blender",
+    "name": "Blender",
     "theme": "#0000FF",
     "content": [{
         "link": "https://example.org",
@@ -48,6 +59,7 @@
     }]
 },{
     "id": "others",
+    "name": "Others",
     "theme": "#FF00FF",
     "content": [{
         "link": "https://example.org",

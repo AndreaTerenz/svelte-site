@@ -3,7 +3,7 @@
     import data from "$lib/data.json"
     import { fade } from "svelte/transition";
     import { asset } from "$app/paths";
-    import { cssHexWithAlpha } from "@/utils";
+    import { cssHexWithAlpha, toStringArray } from "@/utils";
     import SvelteMarkdown from "svelte-markdown";
 
     let currentCat = $state(0)
@@ -15,21 +15,20 @@
     let evenImg = $state("")
     let oddImg = $state("")
     let contentImg = $derived.by(() => {
-        if (currentCont < 0) {
+        if (!contentData || currentCont < 0) {
             return ""
         }
 
-        let url = ""
+        const imgs = toStringArray(contentData.image)
+        const maxIdx = imgs.length
 
-        if (!Array.isArray(contentData!.image)) {
-            url = contentData!.image
-        }
-        else {
-            const maxIdx = contentData!.image.length
-            url = `/projects/${contentData!.image[contentImgIdx % maxIdx]}`
+        let path = imgs[contentImgIdx % maxIdx]
+
+        if ("id" in contentData) {
+            path = `${contentData.id}/${path}`
         }
 
-        return asset(url)
+        return asset(`/projects/${path}`)
     })
 
     function translatedCategoryProp(key: string, catId: number = -1) {
@@ -65,6 +64,7 @@
     function resetContentImg() {
         contentImgIdx = 0
         evenImg = contentImg
+        oddImg = ""
         clearInterval(imgInterval)
         imgInterval = 0
     }
