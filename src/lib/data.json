@@ -6,24 +6,24 @@
         "id": "gametour",
         "link": "https://gametour.it",
         "title": "EmilBanca Gametour",
-        "descr": "An interactive quiz experience, centered around exploring places of interest throught the Emilia region. Visit towns and natural landmarks, and answer questions about them to get rewards.",
+        "descr": "An *interactive quiz experience*, centered around exploring places of interest throught the Emilia region. Visit towns and natural landmarks, and answer questions about them to get rewards.",
         "image": ["gametour-0.png", "gametour-1.png"]
     },{
         "id": "backstage",
         "title": "Backstage - Tutti in Scena",
-        "descr": "a",
+        "descr": "A card game where you collect resources and stack effects with special cards to get cheers for your stage play - made as part of a larger teaching platform about theatre.",
         "image": ["start.png", "game.png", "win.png", "game-mobile.png"]
     },{
         "id": "fragore",
         "link": "https://fragore.comune.lugo.ra.it/",
         "title": "FRAGORE",
-        "descr": "a",
+        "descr": "An *interactive quiz experience* where you explore the town of Lugo to answer trivia questions and play minigames, all centered around three key figures from the city's history.",
         "image": ["start.png", "map.png", "qr.png", "game.png", "archive.png"]
     },{
         "id": "judikes",
         "link": "https://www.fondazioneromanicosardegna.it/judikes/",
         "title": "Judikes",
-        "descr": "a",
+        "descr": "A *companion webapp* for an educational board game about the history of Sardinian churches and Medieval Sardinia in general.",
         "image": ["start.png", "question.png"]
     }]
 },{
