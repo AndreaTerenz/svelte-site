@@ -64,7 +64,7 @@
     function resetContentImg() {
         contentImgIdx = 0
         evenImg = contentImg
-        oddImg = ""
+        oddImg = contentImg
         clearInterval(imgInterval)
         imgInterval = 0
     }
@@ -134,9 +134,9 @@
                         style="background-color: {cssHexWithAlpha(data[currentCat].theme, 0.65)}"
                     >
                         {#if content.image}
-                            <div class="col-span-full lg:col-span-3 order-2 lg:order-1 relative h-220 sm:h-130">
+                            <div class="col-span-full lg:col-span-3 order-2 lg:order-1 relative max-h-220 sm:h-130 sm:max-h-none">
                                 {#each [0,1] as i}
-                                    {#if contentImgIdx % 2 == i}
+                                    {#if contentImgIdx % 2 == i && currentCont == idx}
                                         <img class="abs-center-x project-img" 
                                             transition:fade={{duration: 500}}
                                             src="{i == 0 ? evenImg : oddImg}" alt="{`Image for content #${idx}`}"
