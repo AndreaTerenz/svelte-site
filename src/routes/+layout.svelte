@@ -7,8 +7,6 @@
     import { isLoading } from 'svelte-i18n'
     import { asset } from "$app/paths";
 
-    console.log(import.meta.env)
-
     disableFES()
     let cols = 0.0
     let rows = 0.0
