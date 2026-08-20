@@ -14,8 +14,13 @@
         "work": {
             "name": "Professionali",
             "content": [{
-                "title": "Work 1",
-                "descr": "BUONASERAAA"
+                "descr": "Una *esperienza quiz interattiva*, incentrata sull'esplorazione di luoghi d'interesse nell'Emilia. Visita città e la natura, rispondi a domande e ottieni ricompense per le tue scoperte."
+            },{
+                "descr": "Un videogioco in cui usi carte per ottenere risorse, accumulando effetti con carte speciali - tutto per ottenere applausi per il tuo spettacolo. Realizzato nell'ambito di una più ampia piattaforma di e-learning sull'industria teatrale."
+            },{
+                "descr": "Una *esperienza quiz interattiva* in cui esplori la città di **Lugo** per rispondere a trivia e giocare a minigiochi inclusi, il tutto con l'accompagnamento di tre personaggi storici locali."
+            },{
+                "descr": "Una webapp usata per giocare a un gioco da tavolo sulla storia delle chiese romaniche sarde e della Sardegna in generale."
             }]
         },
         "godot": {

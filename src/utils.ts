@@ -16,3 +16,15 @@ export function fadeIn(node: HTMLElement, params: { delay?: number, duration?: n
         css: (t: number, u: number) => `opacity: ${t*100}%; transform: translate(0, ${u*20}px)`
     };
 }
+
+export function toStringArray(data: any) {
+    if (!data) {
+        return []
+    }
+    
+    if (!Array.isArray(data)) {
+        return [String(data)]
+    }
+
+    return data.map((v) => String(v))
+}

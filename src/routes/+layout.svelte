@@ -6,9 +6,6 @@
     import { useDarkMode } from "@/utils";
     import { isLoading } from 'svelte-i18n'
     import { asset } from "$app/paths";
-    import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
-
-    injectSpeedInsights();
 
     disableFES()
     let cols = 0.0
@@ -83,7 +80,7 @@
 {#if !$isLoading}
 <P5Canvas {sketch} class="absolute z-[-1] top-0 left-0"/>
 <div class="absolute max-w-[950px] size-full overflow-y-hidden">
-    <div class="size-full p-[20px] relative overflow-y-auto lg:overflow-y-hidden">
+    <div class="size-full p-5 relative overflow-y-auto lg:overflow-y-hidden">
         {@render children()}
     </div>
 </div>
