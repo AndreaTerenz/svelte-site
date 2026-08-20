@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: sveltekit-static
+    runtime: static
+    buildCommand: bun install && bun run build
+    staticPublishPath: build
+    #autoDeploy: true
