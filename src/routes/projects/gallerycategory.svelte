@@ -1,8 +1,8 @@
 <script lang="ts">
     import data from "$lib/data.json"
     import { projectImageUrl } from './utils.svelte';
-    import { toStringArray } from '@/utils';
-	import Gallery from "svelte-image-gallery/Gallery.svelte";
+    import { cssHexWithAlpha, toStringArray } from '@/utils';
+    import Gallery from 'svelte-image-gallery';
 
     let { currentCat } = $props()
 
@@ -26,12 +26,17 @@
 </script>
 
 <Gallery on:click={handleClick}>
-	{#each images as imgSrc }
-        <img src={imgSrc} alt="idk" class="border-4 border-amber-300">
+    {#each images as imgSrc }
+        <!-- luminosity -->
+        <img
+            src={imgSrc} alt="idk" class="bg-amber-200 hover:scale-95 transition-all scale-95 hover:ring-4"
+        >
     {/each}
 </Gallery>
 
 <style lang="postcss">
 @reference "tailwindcss";
 @reference "#app.css";
+
+
 </style>

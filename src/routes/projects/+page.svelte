@@ -38,7 +38,7 @@
         <a href="/" class="bi bi-house-door-fill hover:scale-[1.4] transition-transform" aria-label="to-home"></a>
         <div class="row justify-evenly flex-1 relative">
             <span 
-                class="absolute top-0 bg-white rounded-[10px] h-full z-[-1] transition-all" 
+                class="absolute top-0 bg-white rounded-lg h-full z-[-1] transition-all" 
                 style="width: {100/data.length}%; left: {currentCat*(100/data.length)}%;"
             ></span>
             {#each data as category, idx (idx)}

@@ -178,7 +178,7 @@
     @reference 'tailwindcss';
 
     .contact {
-        @apply p-2 rounded-[8px] text-white transition-all duration-200 ease-out;
+        @apply p-2 rounded-md text-white transition-all duration-200 ease-out;
         @apply col-span-4 min-[35rem]:col-span-2 md:col-span-1;
 
         @variant hover {

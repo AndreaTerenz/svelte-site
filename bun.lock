@@ -9,7 +9,6 @@
         "p5": "^2.3.2",
         "postcss-load-config": "^6.0.1",
         "svelte-i18n": "^4.0.1",
-        "svelte-image-gallery": "^1.8.0",
         "svelte-markdown": "^0.4.1",
         "svelte-p5": "^0.3.0",
         "svelte-preprocess": "^6.0.5",
@@ -22,6 +21,7 @@
         "@sveltejs/vite-plugin-svelte": "^7.3.0",
         "@tailwindcss/vite": "^4.3.3",
         "bun-plugin-svelte": "^0.0.6",
+        "svelte-image-gallery": "github:AndreaTerenz/svelte-image-gallery",
         "svelte": "^5.56.9",
         "svelte-check": "^4.7.6",
         "tailwindcss": "^4.3.3",
@@ -377,7 +377,7 @@
 
     "svelte-i18n": ["svelte-i18n@4.0.1", "", { "dependencies": { "cli-color": "^2.0.3", "deepmerge": "^4.2.2", "esbuild": "^0.19.2", "estree-walker": "^2", "intl-messageformat": "^10.5.3", "sade": "^1.8.1", "tiny-glob": "^0.2.9" }, "peerDependencies": { "svelte": "^3 || ^4 || ^5" }, "bin": { "svelte-i18n": "dist/cli.js" } }, "sha512-jaykGlGT5PUaaq04JWbJREvivlCnALtT+m87Kbm0fxyYHynkQaxQMnIKHLm2WeIuBRoljzwgyvz0Z6/CMwfdmQ=="],
 
-    "svelte-image-gallery": ["svelte-image-gallery@1.8.0", "", {}, "sha512-eNcZFbi6t6+hmwJi/zgVEn4blr8DuKqpzb0O1yJY+EfjZkYegAkxlTcWM8z5QQ64xf+BrqoO9JEUiuZ7MvJ2PQ=="],
+    "svelte-image-gallery": ["svelte-image-gallery@github:AndreaTerenz/svelte-image-gallery#fdf093e", {}, "AndreaTerenz-svelte-image-gallery-fdf093e", "sha512-0HH/4EMx8qarwGf5gz4aMIv3LvmHUVJnn0HhcZ9lSKlAJSqdmw0uwp5czapyUtbmRnmyAgqY2a1ih35uswu8Lw=="],
 
     "svelte-markdown": ["svelte-markdown@0.4.1", "", { "dependencies": { "@types/marked": "^5.0.1", "marked": "^5.1.2" }, "peerDependencies": { "svelte": "^4.0.0" } }, "sha512-pOlLY6EruKJaWI9my/2bKX8PdTeP5CM0s4VMmwmC2prlOkjAf+AOmTM4wW/l19Y6WZ87YmP8+ZCJCCwBChWjYw=="],
 
