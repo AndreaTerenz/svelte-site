@@ -28,6 +28,6 @@
     </figcaption>
 </figure>
 
-<style>
+<style lang="postcss">
 
 </style>

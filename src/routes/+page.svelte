@@ -140,14 +140,14 @@
             </p>
         {/each}
     </div>
-    <div class="row justify-center gap-[20px]">
+    <div class="row justify-center gap-5">
         {#each links as link}
             <a class="text-md underline-link" href={link.route}>
                 {$_(link.i18n_key)}
             </a>
         {/each}
     </div>
-    <div class="col gap-8 w-[80%] md:w-full max-w-[800px] items-center">
+    <div class="col gap-8 w-[80%] md:w-full max-w-200 items-center">
         <p class="w-full text-center text-md">{$_("contacts_title")}</p>
         <div
             class="grid grid-cols-4 w-full gap-[1.5em] items-start justify-around"
@@ -174,11 +174,11 @@
 </div>
 {/if}
 
-<style>
+<style lang="postcss">
     @reference 'tailwindcss';
 
     .contact {
-        @apply p-[8px] rounded-[8px] text-white transition-all duration-200 ease-out;
+        @apply p-2 rounded-[8px] text-white transition-all duration-200 ease-out;
         @apply col-span-4 min-[35rem]:col-span-2 md:col-span-1;
 
         @variant hover {

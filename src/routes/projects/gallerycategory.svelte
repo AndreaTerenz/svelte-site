@@ -31,7 +31,7 @@
     {/each}
 </Gallery>
 
-<style>
+<style lang="postcss">
 @reference "tailwindcss";
 @reference "#app.css";
 </style>

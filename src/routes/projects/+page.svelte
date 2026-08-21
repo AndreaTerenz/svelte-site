@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<style>
+<style lang="postcss">
 @reference 'tailwindcss';
 @reference '#app.css';
 </style>
