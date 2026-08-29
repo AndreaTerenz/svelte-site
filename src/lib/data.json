@@ -32,30 +32,37 @@
     "theme": "#00FF00",
     "content": [{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     },{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     },{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     },{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     }]
 },{
     "id": "blender",
+    "mode": "gallery",
     "name": "Blender",
     "theme": "#0000FF",
     "content": [{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "monitor",
+        "image": ["result.png", "result2.png", "result3.png"]
     },{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "NES",
+        "image": "controller.png"
     },{
-        "link": "https://example.org",
-        "image": "favicon.svg"
+        "id": "RAM",
+        "image": ["final.png", "prototype2.png"]
+    },{
+        "id": "magnemite",
+        "image": "anim.gif"
+    },{
+        "id": "motion-track",
+        "image": ["input.gif","v1.gif","v2.gif"]
     }]
 },{
     "id": "others",
@@ -63,12 +70,12 @@
     "theme": "#FF00FF",
     "content": [{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     },{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     },{
         "link": "https://example.org",
-        "image": "favicon.svg"
+        "image": "#"
     }]
 }]
