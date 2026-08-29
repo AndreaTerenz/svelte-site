@@ -17,13 +17,13 @@
 </svelte:head>
 
 <figure class="relative size-full col justify-center items-center text-center">
-    <p class="absolute text-md top-20  w-full">
+    <p class="[@media(min-height:800px)]:absolute text-md top-20  w-full">
         {@html $_('maintenance.title')}
     </p>
     <a href="https://www.youtube.com/watch?v=IFACrIx5SZ0" target="_blank" >
         <img src="{asset('/monkey.gif')}" alt="a gif of an orangutan hammering (poorly)">
     </a>
-    <figcaption class="text-xs text-center mt-[20px] opacity-75">
+    <figcaption class="text-xs text-center mt-5 opacity-75">
         {$_('maintenance.caption')}
     </figcaption>
 </figure>
