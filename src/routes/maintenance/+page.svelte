@@ -3,8 +3,6 @@
     import { asset } from '$app/paths';
     import { _ } from 'svelte-i18n';
 
-    //TODO: add some periodic checks via fetch calls to navigate elsewhere once the site is back online
-
     beforeNavigate(async ({ type, cancel }) => {
         if (type !== 'leave') {
             cancel();

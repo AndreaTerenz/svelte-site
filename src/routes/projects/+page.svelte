@@ -49,8 +49,11 @@
             {/each}
         </div>
     </div>
-    <div class="overflow-hidden w-full sm:w-[80%] flex-1">
-        <div class="overflow-y-auto h-full col gap-5 items-stretch">
+    <div class="overflow-hidden w-full flex-1 col gap-4 items-center">
+        <p class="w-full">
+            {translatedCategoryProp('intro', currentCat)}
+        </p>
+        <div class="overflow-y-auto w-full sm:w-[80%] flex-1 col gap-5 items-stretch">
             {#if catMode === "list"}
                 <Listcategory {currentCat}/>
             {:else}
