@@ -3,8 +3,16 @@
     import data from "$lib/data.json"
     import Listcategory from "./listcategory.svelte";
     import Gallerycategory from "./gallerycategory.svelte";
+    import { page } from '$app/state';
+    import { goto } from "$app/navigation";
 
     let currentCat = $state(0)
+    const idx = data.findIndex((cat) => cat.id === page.url.hash.slice(1))
+
+    if (idx >= 0) {
+        currentCat = idx
+    }
+
     let catMode = $derived.by(() => {
         return data[currentCat]?.mode ?? "list"
     })
@@ -26,6 +34,7 @@
 
     function onTabSelected(idx: number) {
         currentCat = idx
+        goto(`/projects#${data[currentCat].id}`, { replaceState: false })
     }
 </script>
 
