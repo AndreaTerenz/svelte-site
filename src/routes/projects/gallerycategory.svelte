@@ -94,11 +94,11 @@
             {:else}
                 <img src={modalImgSrc} class="modal-content" alt="gg">
             {/if}
-            {#if modalImgsCount > 1 && false}
-                <div class="absolute size-full top-0 left-0 row justify-between items-center">
+            {#if modalImgsCount > 1}
+                <div class="absolute pointer-events-none size-full top-0 left-0 row justify-between items-center">
                     {#each [0,1] as idx}
-                        <button aria-label="{idx === 0 ? 'prev' : 'next'}-image" onclick={() => modalBtnClick(idx)}>
-                            <i class="fa-solid fa-angle-{idx === 0 ? 'left' : 'right'} modal-arrow"></i>
+                        <button class="modal-arrow" aria-label="{idx === 0 ? 'prev' : 'next'}-image" onclick={() => modalBtnClick(idx)}>
+                            <i class="fa-solid fa-angle-{idx === 0 ? 'left' : 'right'}"></i>
                         </button>
                     {/each}
                 </div>
@@ -116,6 +116,7 @@
 }
 
 .modal-arrow {
+    @apply pointer-events-auto;
     @apply text-[40px] p-3 m-2 font-semibold bg-gray-400/50 leading-0 rounded-sm;
     @apply shadow-sm/30 transition-all;
     @apply hover:shadow-lg/40 hover:bg-gray-100 hover:text-gray-500;
