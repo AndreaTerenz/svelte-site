@@ -1,6 +1,5 @@
 <script lang="ts">
     import { beforeNavigate } from "$app/navigation";
-    import { onDestroy } from "svelte";
     import { _ } from "svelte-i18n";
     import { isLoading } from 'svelte-i18n'
     import { fadeIn } from "@/utils";
@@ -8,24 +7,28 @@
     const contacts = [
         {
             icon: "envelope",
+            iconTheme: "solid",
             text: "E-mail",
             link: "mailto:contact@terenz.dev",
             color: "bg-gmail",
         },
         {
-            icon: "git",
+            icon: "codeberg",
+            iconTheme: "brands",
             text: "Codeberg",
             link: "https://codeberg.org/AndreaTerenz",
             color: "bg-codeberg",
         },
         {
             icon: "bluesky",
+            iconTheme: "brands",
             text: "BlueSky",
             link: "https://bsky.app/profile/terenz.dev",
             color: "bg-bluesky",
         },
         {
             icon: "linkedin",
+            iconTheme: "brands",
             text: "LinkedIn",
             link: "https://www.linkedin.com/in/andrea-terenz/",
             color: "bg-linkedin",
@@ -119,9 +122,6 @@
 </svelte:head>
 
 {#if !$isLoading}
-<!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
-    <i class="bi bi-share-fill mr-[0.25em]"></i>
-</button> -->
 <div class="w-full col gap-12 items-center">
     <p
         class="whitespace-pre font-mono font-bold self-center text-md"
@@ -143,7 +143,9 @@
     <div class="row justify-center gap-5">
         {#each links as link}
             <a class="text-md underline-link" href={link.route}>
+                <i class="fa-solid fa-chevron-right"></i>
                 {$_(link.i18n_key)}
+                <i class="fa-solid fa-chevron-left"></i>
             </a>
         {/each}
     </div>
@@ -158,13 +160,13 @@
                     target="_blank"
                     href={contact.link}
                 >
-                    <span class="bi bi-{contact.icon} mr-[0.25em]"></span>
+                    <span class="fa-{contact.iconTheme} fa-{contact.icon} mr-[0.25em]"></span>
                     {contact.text}
                 </a>
             {/each}
         </div>
         <button class="contact bg-[rebeccapurple]" onclick={share}>
-            <i class="bi bi-share-fill mr-[0.25em]"></i>
+            <i class="fa-solid fa-share-from-square mr-[0.25em]"></i>
             {$_('share')}
         </button>
     </div>
@@ -182,7 +184,7 @@
         @apply col-span-4 min-[30rem]:col-span-2 md:col-span-1;
 
         @variant hover {
-            @apply md:scale-110 outline-6 outline-gray-300;
+            @apply md:scale-110 outline-3 outline-gray-300;
         }
     }
 

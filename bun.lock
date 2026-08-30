@@ -5,10 +5,10 @@
     "": {
       "name": "svelte-site",
       "dependencies": {
-        "bootstrap-icons": "^1.13.1",
         "p5": "^2.3.2",
         "postcss-load-config": "^6.0.1",
         "svelte-i18n": "^4.0.1",
+        "svelte-image-gallery": "github:AndreaTerenz/svelte-image-gallery",
         "svelte-markdown": "^0.4.1",
         "svelte-p5": "^0.3.0",
         "svelte-preprocess": "^6.0.5",
@@ -21,7 +21,6 @@
         "@sveltejs/vite-plugin-svelte": "^7.3.0",
         "@tailwindcss/vite": "^4.3.3",
         "bun-plugin-svelte": "^0.0.6",
-        "svelte-image-gallery": "github:AndreaTerenz/svelte-image-gallery",
         "svelte": "^5.56.9",
         "svelte-check": "^4.7.6",
         "tailwindcss": "^4.3.3",
@@ -202,8 +201,6 @@
     "aria-query": ["aria-query@5.3.1", "", {}, "sha512-Z/ZeOgVl7bcSYZ/u/rh0fOpvEpq//LZmdbkXyc7syVzjPAhfOa9ebsdTSjEBDU4vs5nC98Kfduj1uFo0qyET3g=="],
 
     "axobject-query": ["axobject-query@4.1.0", "", {}, "sha512-qIj0G9wZbMGNLjLmg1PT6v2mE9AH2zlnADJD/2tC6E00hgmhUOfEB6greHPAfLRSufHqROIUTkw6E+M3lH0PTQ=="],
-
-    "bootstrap-icons": ["bootstrap-icons@1.13.1", "", {}, "sha512-ijombt4v6bv5CLeXvRWKy7CuM3TRTuPEuGaGKvTV5cz65rQSY8RQ2JcHt6b90cBBAC7s8fsf2EkQDldzCoXUjw=="],
 
     "bun-plugin-svelte": ["bun-plugin-svelte@0.0.6", "", { "peerDependencies": { "svelte": "^5" } }, "sha512-HuEDvOieVwXvhpcHLcASeQIOVgje2GRO3Tu0ypJh3MkjGLkEBOQ1+6FWsMgb54FxfbPw9JP3q0WlBd8SjgrnGQ=="],
 

@@ -18,6 +18,7 @@
                 .map((img, idxImg) => {
                     return {
                         src: projectImageUrl(currentCat, idxCnt, idxImg),
+                        image: idxImg,
                         content: idxCnt
                     }
                 })
@@ -53,7 +54,8 @@
         return toStringArray(imgs).length
     })
 
-    let modalImgSrc = $derived(projectImageUrl(currentCat, currentContent, currentModalImg))
+    let modalImgSrc = $derived(projectImageUrl(currentCat, currentContent, currentModalImg, true))
+    let modalVideo = $state<HTMLVideoElement>()
 
     function modalBtnClick(idx: number) {
         if (idx === 0) {
@@ -69,6 +71,10 @@
         else if (currentModalImg >= modalImgsCount) {
             currentModalImg = 0
         }
+
+        if (modalVideo) {
+            modalVideo.currentTime = 0.0
+        }
     }
 </script>
 
@@ -76,19 +82,23 @@
     {#each images as imgSrc, idx }
         <!-- luminosity -->
         <img
-            src={imgSrc.src} alt="Image {idx} project {imgSrc.content}" class="img-bg hover:scale-95 transition-all scale-95 hover:ring-4"
+            src={imgSrc.src} alt="Image {imgSrc.image} project {imgSrc.content}" class="bg-amber-200 hover:scale-95 transition-all scale-95 hover:ring-4"
         >
     {/each}
 </Gallery>
 <Modal bind:showModal={showImgModal}>
 	{#if modalImgSrc}
         <div class="relative">
-            <img src={modalImgSrc} class="img-bg object-contain lg:min-h-[40rem]! max-h-[70vh]" alt="gg">
+            {#if modalImgSrc.endsWith("webm")}
+                <video bind:this={modalVideo} controls autoplay muted controlslist="nofullscreen nodownload" class="modal-content" src={modalImgSrc}></video>
+            {:else}
+                <img src={modalImgSrc} class="modal-content" alt="gg">
+            {/if}
             {#if modalImgsCount > 1}
-                <div class="absolute size-full top-0 left-0 row justify-between items-center">
+                <div class="absolute pointer-events-none size-full top-0 left-0 row justify-between items-center">
                     {#each [0,1] as idx}
-                        <button aria-label="{idx === 0 ? 'prev' : 'next'}-image" onclick={() => modalBtnClick(idx)}>
-                            <i class="bi {idx === 0 ? 'bi-caret-left-fill' : 'bi-caret-right-fill'} modal-arrow"></i>
+                        <button class="modal-arrow" aria-label="{idx === 0 ? 'prev' : 'next'}-image" onclick={() => modalBtnClick(idx)}>
+                            <i class="fa-solid fa-angle-{idx === 0 ? 'left' : 'right'}"></i>
                         </button>
                     {/each}
                 </div>
@@ -101,11 +111,12 @@
 @reference "tailwindcss";
 @reference "#app.css";
 
-.img-bg {
-    @apply bg-amber-200;
+.modal-content {
+    @apply bg-amber-200 object-contain lg:min-h-[40rem]! max-h-[70vh];
 }
 
 .modal-arrow {
+    @apply pointer-events-auto;
     @apply text-[40px] p-3 m-2 font-semibold bg-gray-400/50 leading-0 rounded-sm;
     @apply shadow-sm/30 transition-all;
     @apply hover:shadow-lg/40 hover:bg-gray-100 hover:text-gray-500;

@@ -73,6 +73,7 @@
 </script>
 
 <svelte:head>
+    <script src="https://kit.fontawesome.com/4efe67612b.js" crossorigin="anonymous"></script>
     <link rel="icon" href={asset('/favicon.svg')} />
     <title>AndreaTerenz</title>
 </svelte:head>

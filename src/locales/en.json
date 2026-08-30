@@ -15,5 +15,8 @@
             "title": "Content coming soon,<br>please check again later.",
             "caption": "Crikey! The monkeys decided this section may need a bit more refining!"
         }
+    },
+    "errors": {
+        "404": "Page not found!"
     }
 }
