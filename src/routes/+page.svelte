@@ -147,10 +147,10 @@
             </a>
         {/each}
     </div>
-    <div class="col gap-8 w-[80%] md:w-full max-w-200 items-center">
+    <div class="col gap-8 w-full max-w-200 items-center">
         <p class="w-full text-center text-md">{$_("contacts_title")}</p>
         <div
-            class="grid grid-cols-4 w-full gap-[1.5em] items-start justify-around"
+            class="grid grid-cols-4 w-[80%] md:w-full gap-[1.5em] items-start justify-around"
         >
             {#each contacts as contact}
                 <a
@@ -179,7 +179,7 @@
 
     .contact {
         @apply p-2 rounded-md text-white transition-all duration-200 ease-out;
-        @apply col-span-4 min-[35rem]:col-span-2 md:col-span-1;
+        @apply col-span-4 min-[30rem]:col-span-2 md:col-span-1;
 
         @variant hover {
             @apply md:scale-110 outline-6 outline-gray-300;
