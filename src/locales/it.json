@@ -36,5 +36,8 @@
         "others": {
             "name": "Altri"
         }
+    },
+    "errors": {
+        "404": "Pagina non trovata!"
     }
 }

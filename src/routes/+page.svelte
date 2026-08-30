@@ -1,6 +1,5 @@
 <script lang="ts">
     import { beforeNavigate } from "$app/navigation";
-    import { onDestroy } from "svelte";
     import { _ } from "svelte-i18n";
     import { isLoading } from 'svelte-i18n'
     import { fadeIn } from "@/utils";
@@ -182,7 +181,7 @@
         @apply col-span-4 min-[30rem]:col-span-2 md:col-span-1;
 
         @variant hover {
-            @apply md:scale-110 outline-6 outline-gray-300;
+            @apply md:scale-110 outline-3 outline-gray-300;
         }
     }
 
