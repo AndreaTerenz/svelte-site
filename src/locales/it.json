@@ -11,6 +11,10 @@
     },
     "projects": {
         "view_link": "Trovi di più qui",
+        "wip" : {
+            "title": "Sezione sarà disponibile a breve,<br>riprova più tardi!",
+            "caption": "Accipicchia! Le scimmie hanno deciso che questa parte ha bisogno di qualche ritocco!"
+        },
         "work": {
             "name": "Professionali",
             "content": [{

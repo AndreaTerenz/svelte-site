@@ -30,6 +30,7 @@
 },{
     "id": "godot",
     "name": "Godot",
+    "disabled": 1,
     "theme": "#00FF00",
     "intro": "Lorem ipsum lorem ipsum",
     "content": [{
@@ -70,6 +71,7 @@
 },{
     "id": "others",
     "name": "Others",
+    "disabled": 1,
     "theme": "#FF00FF",
     "intro": "Lorem ipsum lorem ipsum",
     "content": [{

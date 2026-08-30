@@ -10,6 +10,10 @@
         "caption": "Egads! You caught the monkeys hard at work!"
     },
     "projects": {
-        "view_link": "See more here"
+        "view_link": "See more here",
+        "wip" : {
+            "title": "Content coming soon,<br>please check again later.",
+            "caption": "Crikey! The monkeys decided this section may need a bit more refining!"
+        }
     }
 }
