@@ -13,7 +13,7 @@
     {/if}
     </p>
     <a href="/" class="home-btn" aria-label="to-home">
-        <i class="bi bi-house-door-fill mr-[0.25em]"></i>
+        <i class="fa-solid fa-house mr-[0.25em]"></i>
         Return to home
     </a>
 </div>

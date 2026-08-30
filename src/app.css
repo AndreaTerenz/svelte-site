@@ -1,6 +1,5 @@
 @import url(https://fonts.bunny.net/css?family=martian-mono:400,600|amaranth:400,700|atkinson-hyperlegible:400,700);
 @import 'tailwindcss';
-@import '~bicons/font/bootstrap-icons.min.css';
 
 @theme {
     --default-font-family: 'Atkinson Hyperlegible', sans-serif;

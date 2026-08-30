@@ -19,9 +19,9 @@
 		{@render children?.()}
 		<!-- svelte-ignore a11y_autofocus -->
 		<button autofocus onclick={() => dialog!.close()} aria-label="close-modal"
-            class="absolute top-0 right-0 -translate-y-full bg-white hover:bg-gray-800 rounded-t-sm transition-colors"
+            class="absolute top-0 right-0 p-1 pt-2 -translate-y-full hover:bg-white bg-gray-800 hover:text-gray-800 rounded-t-sm transition-colors"
         >
-            <i class="bi bi-x text-[40px] text-black hover:text-white leading-0 hover:text-[50px] transition-all"></i>
+            <i class="fa-solid fa-circle-xmark fa-xl leading-0 transition-all"></i>
         </button>
 	</div>
 </dialog>

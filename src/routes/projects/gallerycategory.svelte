@@ -88,7 +88,7 @@
                 <div class="absolute size-full top-0 left-0 row justify-between items-center">
                     {#each [0,1] as idx}
                         <button aria-label="{idx === 0 ? 'prev' : 'next'}-image" onclick={() => modalBtnClick(idx)}>
-                            <i class="bi {idx === 0 ? 'bi-caret-left-fill' : 'bi-caret-right-fill'} modal-arrow"></i>
+                            <i class="fa-solid fa-angle-{idx === 0 ? 'left' : 'right'} modal-arrow"></i>
                         </button>
                     {/each}
                 </div>

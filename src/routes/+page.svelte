@@ -7,24 +7,28 @@
     const contacts = [
         {
             icon: "envelope",
+            iconTheme: "solid",
             text: "E-mail",
             link: "mailto:contact@terenz.dev",
             color: "bg-gmail",
         },
         {
-            icon: "git",
+            icon: "codeberg",
+            iconTheme: "brands",
             text: "Codeberg",
             link: "https://codeberg.org/AndreaTerenz",
             color: "bg-codeberg",
         },
         {
             icon: "bluesky",
+            iconTheme: "brands",
             text: "BlueSky",
             link: "https://bsky.app/profile/terenz.dev",
             color: "bg-bluesky",
         },
         {
             icon: "linkedin",
+            iconTheme: "brands",
             text: "LinkedIn",
             link: "https://www.linkedin.com/in/andrea-terenz/",
             color: "bg-linkedin",
@@ -118,9 +122,6 @@
 </svelte:head>
 
 {#if !$isLoading}
-<!-- <button class="absolute rounded-full contact bg-[rebeccapurple]" title="share" aria-label="share" onclick={share}>
-    <i class="bi bi-share-fill mr-[0.25em]"></i>
-</button> -->
 <div class="w-full col gap-12 items-center">
     <p
         class="whitespace-pre font-mono font-bold self-center text-md"
@@ -157,13 +158,13 @@
                     target="_blank"
                     href={contact.link}
                 >
-                    <span class="bi bi-{contact.icon} mr-[0.25em]"></span>
+                    <span class="fa-{contact.iconTheme} fa-{contact.icon} mr-[0.25em]"></span>
                     {contact.text}
                 </a>
             {/each}
         </div>
         <button class="contact bg-[rebeccapurple]" onclick={share}>
-            <i class="bi bi-share-fill mr-[0.25em]"></i>
+            <i class="fa-solid fa-share-from-square mr-[0.25em]"></i>
             {$_('share')}
         </button>
     </div>

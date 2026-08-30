@@ -44,7 +44,9 @@
 
 <div class="col size-full! items-center gap-12">
     <div class="row w-full gap-8">
-        <a href="/" class="bi bi-house-door-fill hover:scale-[1.4] transition-transform" aria-label="to-home"></a>
+        <a href="/" class="hover:scale-[1.4] transition-transform" aria-label="to-home">
+            <i class="fa-solid fa-house"></i>
+        </a>
         <div class="row justify-evenly flex-1 relative">
             <span 
                 class="absolute top-0 bg-white rounded-lg h-full z-[-1] transition-all" 
