@@ -2,7 +2,7 @@ import { asset } from "$app/paths"
 import data from "$lib/data.json"
 import { toStringArray } from "@/utils"
 
-export function projectImageUrl(cat: number, cont: number, imgIdx: number) {
+export function projectImageUrl(cat: number, cont: number, imgIdx: number, hd: boolean = false) {
     const contentData = data[cat]?.content[cont] ?? null
 
     if (!contentData) {
@@ -13,7 +13,14 @@ export function projectImageUrl(cat: number, cont: number, imgIdx: number) {
         return asset("/favicon.svg")
     }
 
-    const imgs = toStringArray(contentData.image)
+    let imgs = contentData.image
+
+    if (hd && "imageHD" in contentData && contentData.imageHD) {
+        imgs = contentData.imageHD
+    }
+    
+    imgs = toStringArray(imgs)
+
     const maxIdx = imgs.length
 
     let path = imgs[imgIdx % maxIdx]

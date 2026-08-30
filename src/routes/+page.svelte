@@ -143,7 +143,9 @@
     <div class="row justify-center gap-5">
         {#each links as link}
             <a class="text-md underline-link" href={link.route}>
+                <i class="fa-solid fa-chevron-right"></i>
                 {$_(link.i18n_key)}
+                <i class="fa-solid fa-chevron-left"></i>
             </a>
         {/each}
     </div>

@@ -13,6 +13,5 @@ export default defineConfig({
             '#app.css': path.resolve(import.meta.dirname, 'src/app.css'),
             "@": path.resolve(import.meta.dirname, "src"),
         }
-    },
-
+    }
 });

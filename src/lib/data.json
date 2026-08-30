@@ -54,19 +54,21 @@
     "intro": "Doing game dev lead me to tinker a lot with Blender, learning the basics of modelling and shading - these are some of my best results!",
     "content": [{
         "id": "monitor",
-        "image": ["result.png", "result2.png", "result3.png"]
+        "image": ["result.webp", "result2.webp", "result3.webp"]
     },{
         "id": "NES",
-        "image": "controller.png"
+        "image": "controller.webp"
     },{
         "id": "RAM",
-        "image": ["final.png", "prototype2.png"]
+        "image": ["final.webp", "prototype2.webp"]
     },{
         "id": "magnemite",
-        "image": "anim.gif"
+        "image": "anim.gif",
+        "imageHD": "anim.webm"
     },{
         "id": "motion-track",
-        "image": ["input.gif","v1.gif","v2.gif"]
+        "image": ["input.gif","v1.gif","v2.gif"],
+        "imageHD": ["input.webm","v1.webm","v2.webm"]
     }]
 },{
     "id": "others",
